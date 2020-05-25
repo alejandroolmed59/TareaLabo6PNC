@@ -22,7 +22,7 @@
             <th th:text="${contri.s_apellido}"/>
             <th th:text="${contri.s_nit}"/>
             <th th:text="${contri.importancia.s_importancia}"/>
-            <th th:text="${contri.f_fecha_ingreso}"/>
+            <th th:text="${#dates.format(contri.f_fecha_ingreso,'dd-MMM-yyyy')}"/>
         </tr>
     </th:block>
 </table>
