@@ -8,7 +8,9 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -22,9 +24,11 @@ public class ContribuyenteServiceImp implements ContribuyenteService {
 
     @Transactional
     public void insertarContribuyente(Contribuyente contribuyente) throws DataAccessException {
-        Date obj = new Date();
-        java.sql.Date sqlDate = new java.sql.Date(obj.getTime());
-        contribuyente.setF_fecha_ingreso(sqlDate);
+       // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        //LocalDateTime now = LocalDateTime.now();
+        //System.out.println(dtf.format(now));
+
+        contribuyente.setF_fecha_ingreso(new Date());
         contribuyenteDAO.insertarContribuyente(contribuyente);
     }
     public List<Contribuyente> findAll() throws DataAccessException{

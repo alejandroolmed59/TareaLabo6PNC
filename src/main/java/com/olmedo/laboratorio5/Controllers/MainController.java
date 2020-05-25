@@ -1,5 +1,8 @@
 package com.olmedo.laboratorio5.Controllers;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +41,7 @@ public class MainController {
     public ModelAndView listado() {
         return auxVerLista();
     }
+
     @RequestMapping("/inicio")
     public ModelAndView inicio(){
         ModelAndView mav = new ModelAndView();
@@ -57,8 +61,7 @@ public class MainController {
         ModelAndView mav = new ModelAndView();
         try {
             contribuyenteService.insertarContribuyente(contribuyente);
-            mav.addObject("contribuyente", new Contribuyente());
-            mav.setViewName("index");
+            mav.setViewName("exito");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,12 +72,17 @@ public class MainController {
     public ModelAndView auxVerLista(){
         ModelAndView mav = new ModelAndView();
         List<Contribuyente> contribuyentes = null;
+        List<String> fechas = null;
         try{
             contribuyentes = contribuyenteService.findAll();
         }catch (Exception e){
             e.printStackTrace();
         }
-
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        //  for (Contribuyente c: contribuyentes){
+          //  fechas.add(formatter.format(c.getF_fecha_ingreso()));
+        //}
+        //mav.addObject("fechas", fechas);
         mav.addObject("contribuyentes", contribuyentes);
         mav.setViewName("listado");
         return mav;

@@ -19,7 +19,7 @@
 
     <form th:action="@{/form}" th:object="${contribuyente}" method="post">
         <div class="form-group">
-            <label>Nombre del Alumno:</label>
+            <label>Nombre:</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" th:field="*{s_nombre}">
             </div>
@@ -42,10 +42,11 @@
         <select class="form-control" th:field="*{importancia.c_importancia}"  id="dropOperator">
             <option th:each="imp : ${importanciaList}" th:value="${imp.c_importancia}" th:text="${imp.s_importancia}"></option>
         </select>
-
+        <br>
         <input type="submit"  class="btn btn-success" value="Agregar">
 
     </form>
+    <br>
     <a type="button" class="btn btn-info" href="/listado" >Ir a listado</a>
     <br>
 
