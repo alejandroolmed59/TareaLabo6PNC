@@ -2,7 +2,6 @@ package com.olmedo.laboratorio5.Dao;
 
 
 import com.olmedo.laboratorio5.Domain.Contribuyente;
-import com.olmedo.laboratorio5.Domain.Estudiante;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
